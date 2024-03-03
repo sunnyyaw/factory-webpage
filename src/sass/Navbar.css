@@ -1,4 +1,30 @@
-
+@keyframes scrollIn {
+  0% {
+    top: -70px;
+    opacity: 0;
+  }
+  50% {
+    top: -70px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+.navbar-show {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background: white;
+  z-index: 1;
+  animation: scrollIn 1.5s ease-in-out;
+}
+.navbar {
+  width: 100%;
+  background: white;
+  z-index: 1;
+}
 .navItem:hover,.navItem-hover{
   color: red;
   transition: color 0.2s ease-in-out 0s;
@@ -50,6 +76,7 @@
   font-size: 0.9rem;
   width: 100%;
   text-align: center;
+  text-decoration: none;
   transition: color 0.2s ease-in-out,background-color 0.2s ease-in-out;
 }
 .dropdown a:hover {

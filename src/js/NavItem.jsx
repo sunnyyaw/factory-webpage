@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom';
 const itemStyle = {
   height: '70px',
   position: 'relative',
-  display: 'flex',
-  justifyContent: 'center',
-  flexDirection: 'column',
 };
 const wordStyle = {
   padding: '0 30px 0 30px',
 };
 const linkStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  height: '100%',
   textDecoration: 'none',
   color: 'inherit',
 };
-export default function NavItem({ selected, text, dropdowns, setSelectedIndex, index }) {
+export default function NavItem({ selected, navItem, setSelectedIndex, index }) {
   const handleClick = () => {
     setSelectedIndex(index);
   };
@@ -23,20 +24,20 @@ export default function NavItem({ selected, text, dropdowns, setSelectedIndex, i
     <>
       <div style={itemStyle} className={selected ? "navItem-hover" : "navItem"}
         onClick={handleClick}>
-        <Link to="" style={linkStyle}>
-          <span style={wordStyle}>{text}</span>
+        <Link to={navItem.href} style={linkStyle}>
+          <span style={wordStyle}>{navItem.text}</span>
+          <div className={selected ? "underLine-hover" : "underLine"} />
         </Link>
-        <div className={selected ? "underLine-hover" : "underLine"} />
-
-        {dropdowns.length > 0 && <div className="dropdown">
-          {
-            dropdowns.map((item, index) => {
-              return (
-                <a key={index}>{item}</a>
-              );
-            })
-          }
-        </div>
+        {navItem.dropdowns.length > 0 &&
+          <div className="dropdown">
+            {
+              navItem.dropdowns.map((item, index) => {
+                return (
+                  <Link key={index}>{item}</Link>
+                );
+              })
+            }
+          </div>
         }
       </div>
     </>
