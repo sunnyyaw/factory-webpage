@@ -43,16 +43,8 @@ const subIconStyle = {
 const fakenavStyle = {
   height: 0,
 };
-export default function Navbar({ navList }) {
+export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelectedSubIndex}) {
   const input = useRef();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const navItems = navList.map((item, index) => {
-    return (<NavItem
-      selected={index === selectedIndex ? true : false}
-      navItem={item}
-      index={index} key={index}
-      setSelectedIndex={setSelectedIndex} />);
-  });
   const handleMouseOver = () => {
     input.current.style.visibility = 'visible';
   };
@@ -87,7 +79,16 @@ export default function Navbar({ navList }) {
         <nav style={navStyle}>
           <img src="" style={imgStyle} alt="logo"></img>
           <div style={divStyle}>
-            {navItems}
+            {
+              navList.map((item, index) => {
+                return (<NavItem
+                  selected={index === selectedIndex ? true : false}
+                  navItem={item}
+                  index={index} key={index}
+                  setSelectedIndex={setSelectedIndex} 
+                  setSelectedSubIndex={setSelectedSubIndex}/>);
+              })
+            }
             <div
               style={iconStyle}
               onMouseOver={handleMouseOver}

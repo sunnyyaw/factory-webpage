@@ -1,0 +1,29 @@
+
+.tooltip:hover {
+  background-color: rgb(230,0,0);
+  transition: background-color 0.2s linear;
+}
+.tooltip {
+  background-color: red;
+  transition: background-color 0.2s linear;
+}
+.tooltip:hover .tooltip-label{
+  transform: translateX(-100%);
+  transition: transform 0.2s linear;
+}
+.tooltip:hover .tooltip-qrcode {
+  transform: translateX(-100%);
+  visibility: visible;
+}
+.tooltip-qrcode {
+  left: 0;
+  visibility: hidden;
+  cursor: auto;
+}
+.tooltip-label {
+  cursor: auto;
+  z-index: -1;
+  left: 0;
+  transform: translateX(0);
+  transition: transform 0.2s linear;
+}

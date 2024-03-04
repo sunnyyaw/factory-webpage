@@ -1,0 +1,23 @@
+.subnav-text {
+  color: initial;
+  padding: 0 30px 0 30px;
+  transition: color 0.2s ease-in-out;
+}
+.subnav-text-hover {
+  color: red;
+  padding: 0 30px 0 30px;
+  transition: color 0.2s ease-in-out;
+}
+.navItem:hover .subnav-text{
+  color: red;
+  transition: color 0.2s ease-in-out;
+}
+.subnav-link {
+  color: gray;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.subnav-link:hover {
+  color: red;
+  transition: color 0.2s ease-in-out;
+}

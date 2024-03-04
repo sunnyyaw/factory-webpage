@@ -6,7 +6,10 @@ import { useState } from "react";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Home from "./Home";
 import Subpage from "./Subpage";
+import Tooltip from "./Tooltip";
 export default function App() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedSubIndex, setSelectedSubIndex] = useState(0);
   const [navList,setNavList] = useState([
     {
       text: '首页',
@@ -37,12 +40,20 @@ export default function App() {
   return (
     <>
     <BrowserRouter>
-      <Navbar navList={navList}/>
+      <Navbar navList={navList} selectedIndex={selectedIndex}
+       setSelectedIndex={setSelectedIndex}
+       setSelectedSubIndex={setSelectedSubIndex}/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/半导体零部件" element={<Subpage />}></Route>
+        <Route path="/*" element={<Subpage navList={navList} 
+        selectedIndex={selectedIndex} selectedSubIndex={selectedSubIndex}
+        setSelectedSubIndex={setSelectedSubIndex}
+        setSelectedIndex={setSelectedIndex}/>}></Route>
       </Routes>
-      <Footer navList={navList}/>
+      <Tooltip />
+      <Footer navList={navList}
+      setSelectedIndex={setSelectedIndex}
+      setSelectedSubIndex={setSelectedSubIndex}/>
     </BrowserRouter>
     </>
   );

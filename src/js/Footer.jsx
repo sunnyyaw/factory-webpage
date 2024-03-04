@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const footerStyle = {
-  position: 'absolute',
+  position: 'relative',
   bottom: '0',
   width: '100%',
   backgroundColor: 'rgb(240,240,240)',
@@ -40,7 +41,11 @@ const copyrightStyle = {
   paddingLeft: '20px',
   color: 'dimgray',
 };
-export default function Footer({navList}) {
+export default function Footer({navList,setSelectedIndex,setSelectedSubIndex}) {
+  const handleClick = (index,subIndex) => {
+    setSelectedIndex(index);
+    setSelectedSubIndex(subIndex);
+  };
   return (
     <>
       <footer style={footerStyle}>
@@ -51,8 +56,9 @@ export default function Footer({navList}) {
                 <div key={index} style={menuStyle}>
                   <strong><p>{navItem.text}</p></strong>
                   {
-                    navItem.dropdowns.map((item,index) => 
-                    <a href="#" key={index} style={linkStyle}>{item}</a>)
+                    navItem.dropdowns.map((item,subIndex) => 
+                    <Link to={navItem.href + '/' + item} key={subIndex} 
+                    onClick={() => handleClick(index + 1,subIndex)} style={linkStyle}>{item}</Link>)
                   }
                 </div>
               );

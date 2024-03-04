@@ -27,6 +27,10 @@
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 }
+.more:active {
+  background-color: dimgray;
+  opacity: 0.5;
+}
 .more {
   padding: 10px 25px 10px 25px;
   border: 1px solid white;

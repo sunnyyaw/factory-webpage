@@ -55,7 +55,7 @@ export default function Image() {
   const h2Style = {
     marginTop: '5px',
     fontSize: '30px',
-    fontweight: 'normal',
+    fontWeight: 'normal',
   };
   const h1Style = {
     fontSize: '40px',
@@ -97,7 +97,7 @@ export default function Image() {
       <div style={radioGroupStyle}>
         {buttons.map((button, index) => {
           return (
-            <a href={'#img' + index} key={index}
+            <a href={'#img'+index} key={index} aria-label="切换图片"
               className={selectedImageIndex === index ? 'input-btn-checked' : 'input-btn'}
               onClick={(e) => handleClick(index, e)} />
           );

@@ -16,9 +16,13 @@ const linkStyle = {
   textDecoration: 'none',
   color: 'inherit',
 };
-export default function NavItem({ selected, navItem, setSelectedIndex, index }) {
+export default function NavItem({ selected, navItem, setSelectedIndex, index,setSelectedSubIndex}) {
   const handleClick = () => {
     setSelectedIndex(index);
+    setSelectedSubIndex(0);
+  };
+  const handleDropdownClick = (event,subIndex) => {
+    setSelectedSubIndex(subIndex);
   };
   return (
     <>
@@ -33,7 +37,7 @@ export default function NavItem({ selected, navItem, setSelectedIndex, index }) 
             {
               navItem.dropdowns.map((item, index) => {
                 return (
-                  <Link key={index}>{item}</Link>
+                  <Link key={index} to={navItem.href+'/'+item} onClick={(e) => handleDropdownClick(e,index)}>{item}</Link>
                 );
               })
             }

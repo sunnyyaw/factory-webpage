@@ -3,7 +3,6 @@
   box-sizing: border-box;
 }
 #root {
-  height: 2000px;
   position: relative;
 }
 body {

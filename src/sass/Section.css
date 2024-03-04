@@ -1,0 +1,49 @@
+.section-button:hover {
+  color: red;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+.section-button:active {
+  background-color: gainsboro;
+}
+.section-button {
+  margin-top: 20px;
+  padding: 10px 25px 10px 25px;
+  width: 110px;
+  height: 40px;
+  border: 1px solid gray;
+  background: transparent;
+  color: black;
+  border-radius: 3px;
+  transition: color 0.2s ease-in-out;
+  animation: fadeIn 1s;
+}
+.section {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-name {
+  transform: translateY(0rem);
+  transition: transform 0.2s ease-in-out;
+}
+.section-item:hover .section-name {
+  transform: translateY(-2rem);
+  transition: transform 0.2s ease-in-out;
+}
+.section-item:hover .section-depict{
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+.section-depict {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.section-item {
+  background: white;
+}
+.section-item:hover {
+  cursor: pointer;
+  background-image: linear-gradient(white,gainsboro);
+}

@@ -1,14 +1,14 @@
 @keyframes scrollIn {
   0% {
-    top: -70px;
+    transform: translateY(-70px);
     opacity: 0;
   }
   50% {
-    top: -70px;
+    transform: translateY(-70px);
     opacity: 0;
   }
   100% {
-    top: 0px;
+    transform: translateY(0px);
     opacity: 1;
   }
 }
