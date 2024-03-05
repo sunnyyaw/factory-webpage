@@ -1,8 +1,8 @@
 import React from "react";
 import Subnav from "./Subnav";
-import Products from "./Products";
+import QuestionForm from "./QuestionForm";
 
-export default function Subpage({navList,selectedIndex,selectedSubIndex,
+export default function QuestionPage({navList,selectedIndex,selectedSubIndex,
   setSelectedSubIndex,setSelectedIndex}) {
   const headImgStyle = {
     display: 'block',
@@ -15,7 +15,7 @@ export default function Subpage({navList,selectedIndex,selectedSubIndex,
       <Subnav navList={navList} selectedIndex={selectedIndex}
        selectedSubIndex={selectedSubIndex} setSelectedSubIndex={setSelectedSubIndex}
        setSelectedIndex={setSelectedIndex}/>
-      <Products title={navList[selectedIndex].dropdowns[selectedSubIndex]}
+      <QuestionForm title={navList[selectedIndex].dropdowns[selectedSubIndex]}
       subTitle={navList[selectedIndex].subTitles[selectedSubIndex]} 
       more={false} index={selectedIndex}
       setSelectedIndex={setSelectedIndex}

@@ -22,6 +22,7 @@ export default function Subnav({navList,selectedIndex,selectedSubIndex,setSelect
     right: '20px',
     display: 'flex',
     alignItems: 'center',
+    fontSize: '0.8rem',
   };
   const linkStyle = {
     position: 'relative',
@@ -35,8 +36,14 @@ export default function Subnav({navList,selectedIndex,selectedSubIndex,setSelect
     color: 'gray',
   };
   const navItem = navList[selectedIndex];
-  const handleClick = (index) => {
+  const handleClick = (event,index) => {
     setSelectedSubIndex(index);
+    scrollTo({top: 0,behavior: 'smooth'});
+  };
+  const handleHome = () => {
+    setSelectedIndex(0);
+    setSelectedSubIndex(0);
+    scrollTo({top: 0,behavior: 'smooth'});
   };
   return (
     <>
@@ -46,7 +53,7 @@ export default function Subnav({navList,selectedIndex,selectedSubIndex,setSelect
             navItem.dropdowns.map((dropdown,index) => {
               return (
                   <Link key={index} to={navItem.href + '/' + dropdown} 
-                  style={linkStyle} onClick={e => handleClick(index)} 
+                  style={linkStyle} onClick={event => handleClick(event,index)} 
                   className={index === selectedSubIndex ? "navItem-hover" : "navItem"}>
                     <span className={index === selectedSubIndex ? "subnav-text-hover" : "subnav-text"}>{dropdown}</span>
                     <div className={index === selectedSubIndex ? "underLine-hover" : "underLine"} />
@@ -55,7 +62,7 @@ export default function Subnav({navList,selectedIndex,selectedSubIndex,setSelect
             })
           }</div>
         <div style={urlStyle}>
-          <Link to="/" onClick={() => setSelectedIndex(0)} className="subnav-link">{navList[0].text}</Link>
+          <Link to="/" onClick={handleHome} className="subnav-link">{navList[0].text}</Link>
           <span style={slashStyle}> / </span>
           <Link to={navItem.href} className="subnav-link">{navItem.text}</Link>
           <span style={slashStyle}> / </span>

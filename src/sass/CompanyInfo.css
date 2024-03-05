@@ -1,12 +1,12 @@
-.section-button:hover {
+.company-info-button:hover {
   color: red;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 }
-.section-button:active {
+.company-info-button:active {
   background-color: gainsboro;
 }
-.section-button {
+.company-info-button {
   margin-top: 20px;
   padding: 10px 25px 10px 25px;
   width: 110px;
@@ -14,40 +14,36 @@
   border: 1px solid gray;
   background: transparent;
   color: black;
-  font-size: 0.8rem;
   border-radius: 3px;
   transition: color 0.2s ease-in-out;
   animation: fadeIn 1s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.section {
+.company-info {
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.section-name {
+.company-info-name {
   transform: translateY(0rem);
   transition: transform 0.2s ease-in-out;
 }
-.section-item:hover .section-name {
+.company-info-item:hover .company-info-name {
   transform: translateY(-2rem);
   transition: transform 0.2s ease-in-out;
 }
-.section-item:hover .section-depict{
+.company-info-item:hover .company-info-depict{
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
 }
-.section-depict {
+.company-info-depict {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
-.section-item {
+.company-info-item {
   background: white;
 }
-.section-item:hover {
+.company-info-item:hover {
   cursor: pointer;
   background-image: linear-gradient(white,gainsboro);
 }

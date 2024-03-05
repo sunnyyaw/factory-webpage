@@ -51,7 +51,7 @@ export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelec
   const handleMouseOut = () => {
     input.current.style.visibility = 'hidden';
   };
-
+  
   let hit = true;
   const handleScroll = (event) => {
     const navigator = document.getElementById('navigator');
@@ -72,6 +72,7 @@ export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelec
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
   return (
     <>
       <div id="fakenav" style={fakenavStyle}></div>

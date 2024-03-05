@@ -62,14 +62,12 @@ export default function Tooltip() {
           <FontAwesomeIcon icon={faWeixin} />
           <img src="" alt="wechat QRcode" className="tooltip-qrcode" style={QRcodeStyle}/>
         </div>
-        <a href="#">
-          <div style={tipStyle} className="tooltip">
-            <FontAwesomeIcon icon={faChevronUp} />
-            <div className="tooltip-label" style={labelStyle}>
-              返回顶部
-            </div>
+        <div style={tipStyle} className="tooltip" onClick={() => window.scrollTo({top: 0,behavior:'smooth'})}>
+          <FontAwesomeIcon icon={faChevronUp} />
+          <div className="tooltip-label" style={labelStyle}>
+            返回顶部
           </div>
-        </a>
+        </div>
       </div>
     </>
   );

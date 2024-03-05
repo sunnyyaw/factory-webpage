@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import '../sass/Section.css';
+import '../sass/Products.css';
 
-export default function Section({title,subTitle,description,items,
+export default function Products({title,subTitle,description,items,
   background,setSelectedSubIndex,setSelectedIndex,href,index,more = true}) {
   const titleStyle = {
     textAlign: 'center',
@@ -32,61 +32,52 @@ export default function Section({title,subTitle,description,items,
     gap: '20px',
   };
   const itemStyle = {
-    position: 'relative',
+    diplay: 'flex',
+    flexDirection: 'column',
     textDecoration: 'none',
     color: 'unset',
   };
   const nameStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontSize: '0.8rem',
     fontWeight: 'bold',
-    fontSize: 'x-large',
-    position: 'absolute',
-    left: '5%',
-    bottom: '5%',
-  };
-  const depictStyle = {
-    position: 'absolute',
-    left: '5%',
-    bottom: '5%',
-    fontSize: '1rem',
+    height: '20%',
   };
   const linkStyle = {
-    textDecoration: 'none',
+    display: 'block',
+    height: '80%',
   }
   const handleClick = (index,subIndex) => {
     setSelectedIndex(index);
     setSelectedSubIndex(subIndex);
-    window.scrollTo({top: 0,behavior: 'smooth'});
   }
   return (
     <>
-      <section className="section" style={sectionStyle}>
+      <section className="productions" style={sectionStyle}>
         <h1 style={titleStyle}>{title}</h1>
         <h2 style={subTitleStyle}>{subTitle}</h2>
         <div>{description}</div>
-        { !items ? <span style={spanStyle}>暂无数据</span> : 
+        { (!items || items.length === 0 )? <span style={spanStyle}>暂无数据</span> : 
           <div style={itemsStyle}>
             {
               items.map((item,subIndex) => {
               return (
-                <Link to={item.href} key={subIndex} style={itemStyle} 
-                onClick={() => handleClick(index,subIndex)} className="section-item">
-                  <span style={nameStyle} className="section-name">
-                    {item.name}
-                  </span>
-                  <span style={depictStyle} className="section-depict">
-                    {item.depict}
-                  </span>
-                </Link>
+                <div key={subIndex} style={itemStyle}>
+                  <Link to={item.href} style={linkStyle}
+                  onClick={() => handleClick(index,subIndex)} className="productions-item">
+                  </Link>
+                  <div style={nameStyle}>
+                    <span className="productions-name">{item.name}</span>
+                  </div>
+                </div>
               );
             })
            }
           </div>
         }
-        {more && 
-        <Link to={href} onClick={() => handleClick(index,0) } style={linkStyle}
-        className="section-button">
-          了解更多
-        </Link>}
       </section>
     </>
   );

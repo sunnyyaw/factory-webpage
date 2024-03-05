@@ -45,6 +45,7 @@ export default function Footer({navList,setSelectedIndex,setSelectedSubIndex}) {
   const handleClick = (index,subIndex) => {
     setSelectedIndex(index);
     setSelectedSubIndex(subIndex);
+    window.scrollTo({top: 0,behavior: 'smooth'});
   };
   return (
     <>

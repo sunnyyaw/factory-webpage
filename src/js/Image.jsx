@@ -1,14 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import '../sass/Image.css';
 
-export default function Image() {
+export default function Image({navList,moreIndex,setSelectedIndex}) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const images = [{}, {}];
   const buttons = new Array(2).fill(0);
 
   const handleClick = (index, event) => {
     setSelectedImageIndex(index);
+  };
+  const handleMore = () => {
+    setSelectedIndex(moreIndex);
+    window.scrollTo({top: 0,behavior: 'smooth'});
   };
   let hit = true;
   const handleScroll = (event) => {
@@ -32,7 +37,6 @@ export default function Image() {
       });
     }
   };
-
   const containerStyle = {
     height: 600,
     position: 'relative',
@@ -82,13 +86,15 @@ export default function Image() {
     <>
       <div id="container" className="image-container" style={containerStyle}>
         {
-          [{}, {}].map((image, index) => {
+          images.map((image, index) => {
             return (
               <div key={index} id={'img' + index} style={{...imageStyle,background: `skyblue`}}>
                 <h1 style={h1Style} className="img-text">专业、创新、开放</h1>
                 <h2 style={h2Style} className="img-text">xxx有限公司</h2>
                 <p style={pStyle} className="img-text">坚持以技术为底...</p>
-                <button className="more" type="button">了解更多</button>
+                <Link to={navList[moreIndex].href} onClick={handleMore}>
+                  <button className="more" type="button">了解更多</button>
+                </Link>
               </div>
             );
           })

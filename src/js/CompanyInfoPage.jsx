@@ -1,9 +1,10 @@
 import React from "react";
 import Subnav from "./Subnav";
-import Products from "./Products";
+import CompanyInfo from "./CompanyInfo";
 
-export default function Subpage({navList,selectedIndex,selectedSubIndex,
-  setSelectedSubIndex,setSelectedIndex}) {
+export default function CompanyInfoPage({navList,selectedIndex,
+  selectedSubIndex,setSelectedSubIndex,
+  setSelectedIndex,description}) {
   const headImgStyle = {
     display: 'block',
     width: '100%',
@@ -15,12 +16,12 @@ export default function Subpage({navList,selectedIndex,selectedSubIndex,
       <Subnav navList={navList} selectedIndex={selectedIndex}
        selectedSubIndex={selectedSubIndex} setSelectedSubIndex={setSelectedSubIndex}
        setSelectedIndex={setSelectedIndex}/>
-      <Products title={navList[selectedIndex].dropdowns[selectedSubIndex]}
+      <CompanyInfo title={navList[selectedIndex].dropdowns[selectedSubIndex]}
       subTitle={navList[selectedIndex].subTitles[selectedSubIndex]} 
-      more={false} index={selectedIndex}
+      index={selectedIndex}
       setSelectedIndex={setSelectedIndex}
       setSelectedSubIndex={setSelectedSubIndex}
-      items={navList[selectedIndex].products[selectedSubIndex].map(item => ({name: item,depict: '',href: ''}))}/>
+      description={description}/>
     </>
   );
 }

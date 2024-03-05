@@ -20,6 +20,7 @@ export default function NavItem({ selected, navItem, setSelectedIndex, index,set
   const handleClick = () => {
     setSelectedIndex(index);
     setSelectedSubIndex(0);
+    scrollTo({top: 0,behavior: 'smooth'});
   };
   const handleDropdownClick = (event,subIndex) => {
     setSelectedSubIndex(subIndex);
