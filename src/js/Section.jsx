@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect,useRef } from "react";
 import { Link } from "react-router-dom";
 import '../sass/Section.css';
 
@@ -51,15 +51,59 @@ export default function Section({title,subTitle,description,items,
   };
   const linkStyle = {
     textDecoration: 'none',
-  }
+  };
   const handleClick = (index,subIndex) => {
     setSelectedIndex(index);
     setSelectedSubIndex(subIndex);
     window.scrollTo({top: 0,behavior: 'smooth'});
-  }
+  };
+  const sectionRef = useRef();
+  useEffect(() => {
+    const section = sectionRef.current;
+    const observer = new IntersectionObserver((entries)=> {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          [...entry.target.children].forEach(elem => {
+              elem.animate([
+              { opacity: '0',transform: 'translateY(40px)',offset: 0},
+              { opacity: '0.8',transform: 'translateY(-5px)',offset: 0.5},
+              { opacity: '1',transform: 'translateY(0px)',offset: 1},
+            ],
+            {
+              duration: 1000,
+              easing: 'ease-in-out',
+              iterations: 1,
+            });
+            elem.style.opacity = 1;
+          });
+        } else {
+          [...entry.target.children].forEach(elem => {
+            elem.animate([
+              { opacity: '1',transform: 'translateY(0px)'},
+              { opacity: '0',transform: 'translateY(40px)'},
+            ],
+            {
+              duration: 500,
+              easing: 'ease-in-out',
+              iterations: 1,
+            });
+            elem.style.opacity = 0;
+          });
+        }
+      });
+    },{
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2,
+    });
+    observer.observe(section);
+    return () => {
+      observer.unobserve(section)
+    };
+  },[]);
   return (
     <>
-      <section className="section" style={sectionStyle}>
+      <section ref={sectionRef} className="section" style={sectionStyle}>
         <h1 style={titleStyle}>{title}</h1>
         <h2 style={subTitleStyle}>{subTitle}</h2>
         <div>{description}</div>

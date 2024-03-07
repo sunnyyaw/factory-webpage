@@ -3,7 +3,7 @@ import Image from "./Image";
 import Section from "./Section";
 import CompanyInfo from "./CompanyInfo";
 
-export default function Home({navList,setSelectedIndex,setSelectedSubIndex}) {
+export default function Home({navList,images,setSelectedIndex,setSelectedSubIndex}) {
   const companyDescription = 'xxx有限公司致力于半导体装备及零部件、电子制造设备的研发、制造、销售与服务。为半导体行业客户提供创新技术与产品解决方案，持续支撑行业健康发展。将国内最优秀的电子制造解决方案和生产测试装备推介给行业客户，促进产业能力提升。';
   const navItems = navList.map((navItem) => {
     return navItem.dropdowns.map((dropdown,subIndex) => ({
@@ -14,7 +14,7 @@ export default function Home({navList,setSelectedIndex,setSelectedSubIndex}) {
   });
   return (
     <>
-      <Image navList={navList} moreIndex={4} setSelectedIndex={setSelectedIndex}/>
+      <Image navList={navList} images={images} moreIndex={4} setSelectedIndex={setSelectedIndex}/>
       <Section title="最新资讯" subTitle="LATEST INFORMATION" background={'rgb(240,240,240)'}
        setSelectedSubIndex={setSelectedSubIndex}
        setSelectedIndex={setSelectedIndex}

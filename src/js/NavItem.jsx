@@ -23,7 +23,10 @@ export default function NavItem({ selected, navItem, setSelectedIndex, index,set
     scrollTo({top: 0,behavior: 'smooth'});
   };
   const handleDropdownClick = (event,subIndex) => {
+    setSelectedIndex(index);
     setSelectedSubIndex(subIndex);
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
   };
   return (
     <>
@@ -36,9 +39,9 @@ export default function NavItem({ selected, navItem, setSelectedIndex, index,set
         {navItem.dropdowns.length > 0 &&
           <div className="dropdown">
             {
-              navItem.dropdowns.map((item, index) => {
+              navItem.dropdowns.map((item, subIndex) => {
                 return (
-                  <Link key={index} to={navItem.href+'/'+item} onClick={(e) => handleDropdownClick(e,index)}>{item}</Link>
+                  <Link key={subIndex} to={navItem.href+'/'+item} onClick={(e) => handleDropdownClick(e,subIndex)}>{item}</Link>
                 );
               })
             }

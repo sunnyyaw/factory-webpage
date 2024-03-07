@@ -10,7 +10,8 @@ const navStyle = {
 };
 const imgStyle = {
   objectFit: 'contain',
-  width: 70,
+  width: 200,
+  height: 70,
   padding: 10,
 };
 const divStyle = {
@@ -78,7 +79,7 @@ export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelec
       <div id="fakenav" style={fakenavStyle}></div>
       <div id="navigator" className="navbar">
         <nav style={navStyle}>
-          <img src="" style={imgStyle} alt="logo"></img>
+          <img src={require('../assets/logo.jpg').default} style={imgStyle} alt="logo"></img>
           <div style={divStyle}>
             {
               navList.map((item, index) => {
