@@ -1,0 +1,76 @@
+.product-page-image {
+  width: 50%;
+  height: 40vh;
+  display: block;
+  object-fit: contain;
+  padding: 10px;
+}
+.product-page-navbar {
+  text-align: end;
+  padding: 20px;
+  font-size: small;
+  color: gray;
+}
+.product-page-image-description {
+  width: 100%;
+  display: flex;
+}
+.product-page-link {
+  text-decoration: none;
+  color: gray;
+  transition: color 0.2s ease-in-out;
+}
+.product-page-link:hover {
+  transition: color 0.2s ease-in-out;
+  color: red;
+}
+.product-page-container {
+  padding: 0 10px;
+}
+.product-page-name {
+  font-size: 1.3rem;
+}
+.product-page-depict {
+  color: dimgray;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+.product-page-divider {
+  height: 2px;
+  background-color: gainsboro;
+  border: none;
+}
+.product-page-span {
+  font-size: 0.8rem;
+}
+.product-page-red {
+  display: block;
+  margin-top: 10px;
+  color: crimson;
+}
+.product-page-bold {
+  font-weight: bold;
+}
+.product-page-feature-box {
+  padding: 5px 20px 40px 20px;
+}
+.product-page-list {
+  list-style-type: circle;
+  font-size: 0.9rem;
+  line-height: 2rem;
+  padding-left: 1rem;
+}
+.product-page-table-head {
+  background-color: rgb(230,230,230);
+}
+.product-page-cell {
+  padding: 1rem;
+}
+.product-page-table {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: dimgray;
+  border-collapse: collapse;
+  border: 1px solid gray;
+}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../sass/Products.css';
 
 export default function Products({title,subTitle,description,items,
-  background,setSelectedSubIndex,setSelectedIndex,href,index,more = true}) {
+  background,href}) {
   const titleStyle = {
     textAlign: 'center',
     fontSize: '1.6rem',
@@ -49,11 +49,15 @@ export default function Products({title,subTitle,description,items,
   const linkStyle = {
     display: 'block',
     height: '80%',
-  }
-  const handleClick = (index,subIndex) => {
-    setSelectedIndex(index);
-    setSelectedSubIndex(subIndex);
-  }
+  };
+  const wordStyle = {
+    textDecoration: 'none',
+  };
+  const imgStyle = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
+  };
   return (
     <>
       <section className="productions" style={sectionStyle}>
@@ -66,11 +70,15 @@ export default function Products({title,subTitle,description,items,
               items.map((item,subIndex) => {
               return (
                 <div key={subIndex} style={itemStyle}>
-                  <Link to={item.href} style={linkStyle}
-                  onClick={() => handleClick(index,subIndex)} className="productions-item">
+                  <Link to={href + '/' + subIndex} style={linkStyle}
+                  className="productions-item">
+                    <img src={item.image ? require(`../assets/${item.image}`).default : ''} 
+                    alt={`product-image${subIndex}`} style={imgStyle}/>
                   </Link>
                   <div style={nameStyle}>
-                    <span className="productions-name">{item.name}</span>
+                    <Link to={href + '/' + subIndex} style={wordStyle}>
+                      <span className="productions-name" >{item.name}</span>
+                    </Link>
                   </div>
                 </div>
               );

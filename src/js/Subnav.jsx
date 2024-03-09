@@ -63,9 +63,9 @@ export default function Subnav({navList,selectedIndex,selectedSubIndex,setSelect
           }</div>
         <div style={urlStyle}>
           <Link to="/" onClick={handleHome} className="subnav-link">{navList[0].text}</Link>
-          <span style={slashStyle}> / </span>
+          <span style={slashStyle}>&nbsp;/&nbsp;</span>
           <Link to={navItem.href} className="subnav-link">{navItem.text}</Link>
-          <span style={slashStyle}> / </span>
+          <span style={slashStyle}>&nbsp;/&nbsp;</span>
           <Link to={navItem.href + '/'+navItem.dropdowns[selectedSubIndex]} className="subnav-link">
             {navItem.dropdowns[selectedSubIndex]}
           </Link>

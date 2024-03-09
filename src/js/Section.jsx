@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../sass/Section.css';
 
 export default function Section({title,subTitle,description,items,
-  background,setSelectedSubIndex,setSelectedIndex,href,index,more = true}) {
+  background,setSelectedSubIndex,setSelectedIndex,href,index,subIndex = 0,more = true}) {
   const titleStyle = {
     textAlign: 'center',
     fontSize: '1.6rem',
@@ -127,7 +127,7 @@ export default function Section({title,subTitle,description,items,
           </div>
         }
         {more && 
-        <Link to={href} onClick={() => handleClick(index,0) } style={linkStyle}
+        <Link to={href} onClick={() => handleClick(index,subIndex) } style={linkStyle}
         className="section-button">
           了解更多
         </Link>}

@@ -10,7 +10,7 @@
     "prebuild": "rimraf ./dist"
   },
   "keywords": [],
-  "author": "",
+  "author": "sunnyyaw",
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

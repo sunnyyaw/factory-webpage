@@ -3,12 +3,13 @@ import '../sass/App.css';
 import Navbar from './Navbar';
 import Footer from "./Footer";
 import { useState } from "react";
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from "./Home";
 import Subpage from "./Subpage";
 import Tooltip from "./Tooltip";
 import QuestionPage from "./QuestionPage";
 import CompanyInfoPage from "./CompanyInfoPage";
+import ProductPage from "./ProductPage";
 
 export default function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -32,19 +33,31 @@ export default function App() {
       subhrefs: ['/控压阀','/流量计','/光热源','/泵'],
       products: [
         [
-          'SE-B010A-K040DN/K050DN-E2F-CC 控压蝶阀',
-          'SE-B010A-P100DN-E2F-CC控压蝶阀',
+          {name: 'SE-B010A-K040DN/K050DN-E2F-CC 控压蝶阀',
+          depict: 'SE-B010A-K040DN/K050DN-E2FCC蝶阀集成控制器，支持DeviceNet等通信协议，支持外接两个真空规。应用于真空系统中，通过蝶阀开度的高精度调节实现真空系统的压力闭环控制。',
+          features: ['高精度：控制精度0.25% S.P 或5mV',
+          '响应快：开关时间0.2s',
+          '耐腐蚀：阀体采用316L不锈钢，密封件采用FFKM',
+          '耐高温：阀体可达150℃',],
+          specHeads: ['指标','单位','规格参数'],
+          specs: [['外漏','Pa·m3/s （He）','≤ 1.0E-10'],['阀板最大压差','Mpa','0.1'],['控压精度','/','0.1% S.P or 5mV']],
+          image: 'product1.jpg',
+          },
+          {name: 'SE-B010A-P100DN-E2F-CC控压蝶阀',
+          depict: 'SE-B010A-P100DN-E2FCC蝶阀集成控制器，支持DeviceNet等通信协议，支持外接两个真空规。应用于真空系统中，通过蝶阀开度的高精度调节实现真空系统的压力闭环控制。',
+          image: 'product2.jpg',
+          },
         ],
         [
-          '氙灯：高亮度 , 宽光谱 , 高稳定性',
-          'LDLS',
-          'UV灯: 高紫外能量, 高稳定性，长寿命',
-          'HS-H2000A-S120SH单端卤素灯',
-          'HS-H520A-S082SV/ HS-H640A-S095SV单端卤素灯',
+          {name: '氙灯：高亮度 , 宽光谱 , 高稳定性'},
+          {name: 'LDLS'},
+          {name: 'UV灯: 高紫外能量, 高稳定性，长寿命'},
+          {name: 'HS-H2000A-S120SH单端卤素灯'},
+          {name: 'HS-H520A-S082SV/ HS-H640A-S095SV单端卤素灯'},
         ],
         [
-          'DE-L600A磁悬浮液体泵',
-          'DE-L2000A磁悬浮液体泵',
+          {name: 'DE-L600A磁悬浮液体泵'},
+          {name: 'DE-L2000A磁悬浮液体泵'},
         ],
         [],
       ],
@@ -83,16 +96,16 @@ export default function App() {
   公司核心团队具备20年以上电子设备技术开发经验，并联合了众多国内半导体制造设备和零部件合作伙伴，为国内半导体设备厂、FAB厂、电子电器设备厂、研究机构提供先进的解决方案，相关产品广泛应用于国内顶级制造企业和研究、测试机构。\
 坚持“专业、创新、开放”，以技术为底、集众家之力，攻坚克难，为半导体及电子制造产业健康发展贡献一份力量。';
   useEffect(() => {
-    const selectedIndexStr = localStorage.getItem('selectedIndex');
-    const selectedSubIndexStr = localStorage.getItem('selectedSubIndex');
+    const selectedIndexStr = sessionStorage.getItem('selectedIndex');
+    const selectedSubIndexStr = sessionStorage.getItem('selectedSubIndex');
     const selected = JSON.parse(selectedIndexStr) ? JSON.parse(selectedIndexStr) : 0;
     const selectedSub = JSON.parse(selectedSubIndexStr) ? JSON.parse(selectedSubIndexStr) : 0;
     setSelectedIndex(selected);
     setSelectedSubIndex(selectedSub);
   },[]);
   useEffect(() => {
-    localStorage.setItem('selectedIndex',JSON.stringify(selectedIndex));
-    localStorage.setItem('selectedSubIndex',JSON.stringify(selectedSubIndex));
+    sessionStorage.setItem('selectedIndex',JSON.stringify(selectedIndex));
+    sessionStorage.setItem('selectedSubIndex',JSON.stringify(selectedSubIndex));
   },[selectedIndex,selectedSubIndex]);
   return (
     <>
@@ -104,15 +117,20 @@ export default function App() {
         <Route path="/" element={<Home navList={navList} 
         setSelectedIndex={setSelectedIndex} setSelectedSubIndex={setSelectedSubIndex}
          images={images}/>}></Route>
-        <Route path="/*" element={<Subpage navList={navList} 
-        selectedIndex={selectedIndex} selectedSubIndex={selectedSubIndex}
-        setSelectedSubIndex={setSelectedSubIndex}
-        setSelectedIndex={setSelectedIndex}/>}></Route>
+        <Route path="/:navName/:subNavName/:productId" element={<ProductPage 
+        products={navList[selectedIndex].products[selectedSubIndex]}
+        setSelectedIndex={setSelectedIndex}
+        setSelectedSubIndex={setSelectedSubIndex}/>}>
+        </Route>
         <Route path="/关于我们/公司简介?" element={<CompanyInfoPage navList={navList} 
         selectedIndex={selectedIndex} selectedSubIndex={selectedSubIndex}
         setSelectedSubIndex={setSelectedSubIndex}
         setSelectedIndex={setSelectedIndex} description={companyDescription}/>}></Route>
         <Route path="/技术支持/*" element={<QuestionPage navList={navList} 
+        selectedIndex={selectedIndex} selectedSubIndex={selectedSubIndex}
+        setSelectedSubIndex={setSelectedSubIndex}
+        setSelectedIndex={setSelectedIndex}/>}></Route>
+        <Route path="/*" element={<Subpage navList={navList} 
         selectedIndex={selectedIndex} selectedSubIndex={selectedSubIndex}
         setSelectedSubIndex={setSelectedSubIndex}
         setSelectedIndex={setSelectedIndex}/>}></Route>

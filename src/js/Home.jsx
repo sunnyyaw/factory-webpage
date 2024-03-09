@@ -18,7 +18,7 @@ export default function Home({navList,images,setSelectedIndex,setSelectedSubInde
       <Section title="最新资讯" subTitle="LATEST INFORMATION" background={'rgb(240,240,240)'}
        setSelectedSubIndex={setSelectedSubIndex}
        setSelectedIndex={setSelectedIndex}
-       index={4} href={navList[4].href}/>
+       index={4} subIndex={2} href={navList[4]?.href + navList[4]?.subhrefs[2]}/>
       <Section title="半导体零部件" subTitle="SEMICONDUCTOR  EQUIPMENT PARTS" items={navItems[1]}
        setSelectedSubIndex={setSelectedSubIndex}
        setSelectedIndex={setSelectedIndex}
