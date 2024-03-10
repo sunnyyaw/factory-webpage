@@ -1,8 +1,9 @@
 import React, { useEffect,useRef } from "react";
+import { Link } from "react-router-dom";
 import '../sass/CompanyInfo.css';
 
 export default function CompanyInfo({title,subTitle,description,
-  background}) {
+  background,setSelectedIndex,href,index,more = true}) {
   const titleStyle = {
     fontSize: '1.6rem',
     marginBottom: '5px',
@@ -31,6 +32,13 @@ export default function CompanyInfo({title,subTitle,description,
   const descriptionStyle = {
     margin: '30px 0',
     color: 'dimgray',
+  };
+  const linkStyle = {
+    textDecoration: 'none',
+  };
+  const handleClick = () => {
+    setSelectedIndex(index);
+    scrollTo({top: 0,behavior: 'smooth'});
   };
   const sectionRef = useRef();
   useEffect(() => {
@@ -81,6 +89,11 @@ export default function CompanyInfo({title,subTitle,description,
           <h1 style={titleStyle}>{title}</h1>
           <h2 style={subTitleStyle}>{subTitle}</h2>
           <div style={descriptionStyle}>{description}</div>
+          {more && 
+          <Link to={href} onClick={() => handleClick(index) } style={linkStyle}
+          className="section-button">
+            了解更多
+          </Link>}
         </div>
         <img src={require('../assets/factory.jpg').default} style={imgStyle} alt="company image"/>
       </section>

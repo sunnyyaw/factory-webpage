@@ -2,6 +2,7 @@ import React from "react";
 import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import NavItem from "./NavItem";
 import '../sass/Navbar.css';
 
@@ -69,6 +70,11 @@ export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelec
       navigator.className = 'navbar-show';
     }
   };
+  const handleHome = () => {
+    setSelectedIndex(0);
+    setSelectedSubIndex(0);
+    scrollTo({top: 0,behavior: 'smooth'});
+  };
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -79,7 +85,9 @@ export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelec
       <div id="fakenav" style={fakenavStyle}></div>
       <div id="navigator" className="navbar">
         <nav style={navStyle}>
+          <Link to="/" onClick={handleHome} className="navbar-home-link">
           <img src={require('../assets/logo.jpg').default} style={imgStyle} alt="logo"></img>
+          </Link>
           <div style={divStyle}>
             {
               navList.map((item, index) => {

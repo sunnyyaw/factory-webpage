@@ -21,7 +21,8 @@ export default function CompanyInfoPage({navList,selectedIndex,
       index={selectedIndex}
       setSelectedIndex={setSelectedIndex}
       setSelectedSubIndex={setSelectedSubIndex}
-      description={description}/>
+      description={description}
+      more={false}/>
     </>
   );
 }

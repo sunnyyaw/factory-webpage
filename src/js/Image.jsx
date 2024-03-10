@@ -1,14 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useState, useEffect,useRef } from "react";
+import { Link} from "react-router-dom";
 import '../sass/Image.css';
 
 export default function Image({navList,moreIndex,setSelectedIndex,images}) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const buttons = new Array(2).fill(0);
+  const container = useRef();
 
-  const handleClick = (index, event) => {
+  const handleClick = (event,index) => {
+    const imgContainer = container.current;
     setSelectedImageIndex(index);
+    imgContainer.style.transform = `translateX(${- index * imgContainer.offsetWidth}px)`;
   };
   const handleMore = () => {
     setSelectedIndex(moreIndex);
@@ -40,8 +43,6 @@ export default function Image({navList,moreIndex,setSelectedIndex,images}) {
     height: 600,
     position: 'relative',
     display: 'flex',
-    overflow: 'hidden',
-    scrollBehavior: 'smooth',
   };
   const imageStyle = {
     position: 'relative',
@@ -85,7 +86,7 @@ export default function Image({navList,moreIndex,setSelectedIndex,images}) {
   }, []);
   return (
     <>
-      <div id="container" className="image-container" style={containerStyle}>
+      <div ref={container} id="container" className="image-container" style={containerStyle}>
         {
           images.map((image, index) => {
             return (
@@ -104,9 +105,9 @@ export default function Image({navList,moreIndex,setSelectedIndex,images}) {
       <div style={radioGroupStyle}>
         {buttons.map((button, index) => {
           return (
-            <a href={'#img'+index} key={index} aria-label="切换图片"
+            <a key={index} aria-label="切换图片"
               className={selectedImageIndex === index ? 'input-btn-checked' : 'input-btn'}
-              onClick={(e) => handleClick(index, e)} />
+              onClick={(e) => handleClick(e,index)} />
           );
         })}
       </div>
