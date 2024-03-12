@@ -112,8 +112,9 @@ export default function Section({title,subTitle,description,items,
             {
               items.map((item,subIndex) => {
               return (
-                <Link to={item.href} key={subIndex} style={itemStyle} 
+                <Link to={item.href} key={subIndex} style={{...itemStyle,backgroundImage: `url(/${item.image})`}} 
                 onClick={() => handleClick(index,subIndex)} className="section-item">
+                  <div className="section-mask" />
                   <span style={nameStyle} className="section-name">
                     {item.name}
                   </span>

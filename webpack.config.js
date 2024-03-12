@@ -11,7 +11,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    static: path.resolve(__dirname,'dist'),
+    static: path.resolve(__dirname,'src','assets'),
     port: 8080,
     hot: true
   },

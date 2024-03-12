@@ -56,7 +56,6 @@ export default function Products({title,subTitle,description,items,
   const imgStyle = {
     width: '100%',
     height: '100%',
-    objectFit: 'contain',
   };
   const handleClick = () => {
     scrollTo({top: 0,behavior: 'smooth'});
@@ -117,7 +116,7 @@ export default function Products({title,subTitle,description,items,
                 <div key={subIndex} style={itemStyle}>
                   <Link to={href + '/' + subIndex} style={linkStyle}
                   className="productions-item" onClick={handleClick}>
-                    <img src={item.image ? require(`../assets/${item.image}`).default : ''} 
+                    <img src={`/${item.image}`} 
                     alt={`product-image${subIndex}`} style={imgStyle}/>
                   </Link>
                   <div style={nameStyle}>

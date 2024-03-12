@@ -11,7 +11,7 @@ export default function QuestionPage({navList,selectedIndex,selectedSubIndex,
   };
   return (
     <>
-      <img src={require('../assets/factory.jpg').default} alt="head-img" style={headImgStyle}/>
+      <img src="/factory.jpg" alt="head-img" style={headImgStyle}/>
       <Subnav navList={navList} selectedIndex={selectedIndex}
        selectedSubIndex={selectedSubIndex} setSelectedSubIndex={setSelectedSubIndex}
        setSelectedIndex={setSelectedIndex}/>

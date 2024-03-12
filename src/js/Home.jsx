@@ -10,6 +10,7 @@ export default function Home({navList,images,setSelectedIndex,setSelectedSubInde
       name: dropdown,
       depict: navItem.depicts[subIndex],
       href: navItem.href + navItem.subhrefs[subIndex],
+      image: navItem.images? navItem.images[subIndex] : '',
     }));
   });
   return (

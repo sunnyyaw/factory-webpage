@@ -31,6 +31,7 @@ export default function App() {
       subTitles: ['PRESSURE CONTROL VALVE','MASS FLOW CONTROLLERS','LIGHT & RADIATION SOURCES','PUMP'],
       depicts: ['高精度、响应快','高精度、低漏率','宽光谱、高亮度','高洁净、高可靠'],
       subhrefs: ['/控压阀','/流量计','/光热源','/泵'],
+      images: ['home1.jpg','home2.jpg','home3.jpg','home4.jpg'],
       products: [
         [
           {name: 'SE-B010A-K040DN/K050DN-E2F-CC 控压蝶阀',

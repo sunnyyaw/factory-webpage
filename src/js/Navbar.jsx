@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -86,7 +86,7 @@ export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelec
       <div id="navigator" className="navbar">
         <nav style={navStyle}>
           <Link to="/" onClick={handleHome} className="navbar-home-link">
-          <img src={require('../assets/logo.jpg').default} style={imgStyle} alt="logo"></img>
+          <img src="/logo.jpg" style={imgStyle} alt="logo"></img>
           </Link>
           <div style={divStyle}>
             {
