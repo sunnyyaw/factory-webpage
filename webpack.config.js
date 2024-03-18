@@ -48,6 +48,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({template: path.resolve(__dirname,'public/index.html')})
+    new HtmlWebpackPlugin({template: 'public/index.html'})
   ]
 }
