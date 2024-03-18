@@ -7,7 +7,6 @@ module.exports = {
   output: {
     filename: 'bundle.[fullhash].js',
     path: __dirname,
-    publicPath: '/',
   },
   devServer: {
     historyApiFallback: true,
