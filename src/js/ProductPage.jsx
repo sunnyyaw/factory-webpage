@@ -24,7 +24,7 @@ export default function ProductPage({ products,setSelectedIndex,setSelectedSubIn
         <span>{product?.name}</span>
       </nav>
       <div className="product-page-image-description">
-      <img src={`/${product?.image}`} 
+      <img src={`/src/assets/${product?.image}`} 
       alt="product-image" className="product-page-image"/>
         <div>
           <h1 className="product-page-name">{product?.name}</h1>

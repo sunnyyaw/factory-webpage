@@ -95,7 +95,7 @@ export default function CompanyInfo({title,subTitle,description,
             了解更多
           </Link>}
         </div>
-        <img src="/factory.jpg" style={imgStyle} alt="company image"/>
+        <img src="/src/assets/factory.jpg" style={imgStyle} alt="company image"/>
       </section>
     </>
   );

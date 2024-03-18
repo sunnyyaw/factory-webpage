@@ -13,6 +13,7 @@
   font-weight: bold;
   font-size: 1rem;
   border-radius: 25px;
+  border: none;
   transition: background-color 0.2s ease-in-out;
 }
 .question-form-button:hover {
@@ -23,7 +24,8 @@
 .question-form-input {
   padding: 10px;
   border-radius: 3px;
-  outline: 0px solid white;
+  border: none;
+  outline: 1px solid black;
   transition: outline 0.2s ease-in-out;
 }
 .question-form-input:focus,.question-form-input:hover,

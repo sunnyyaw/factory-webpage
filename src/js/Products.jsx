@@ -116,7 +116,7 @@ export default function Products({title,subTitle,description,items,
                 <div key={subIndex} style={itemStyle}>
                   <Link to={href + '/' + subIndex} style={linkStyle}
                   className="productions-item" onClick={handleClick}>
-                    <img src={`/${item.image}`} 
+                    <img src={`/src/assets/${item.image}`} 
                     alt={`product-image${subIndex}`} style={imgStyle}/>
                   </Link>
                   <div style={nameStyle}>

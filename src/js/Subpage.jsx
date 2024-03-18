@@ -11,7 +11,7 @@ export default function Subpage({navList,selectedIndex,selectedSubIndex,
   };
   return (
     <>
-      <img src="/factory.jpg" alt="head-img" style={headImgStyle}/>
+      <img src="/src/assets/factory.jpg" alt="head-img" style={headImgStyle}/>
       <Subnav navList={navList} selectedIndex={selectedIndex}
        selectedSubIndex={selectedSubIndex} setSelectedSubIndex={setSelectedSubIndex}
        setSelectedIndex={setSelectedIndex}/>

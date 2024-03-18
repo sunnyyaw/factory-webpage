@@ -86,7 +86,7 @@ export default function Navbar({ navList,selectedIndex,setSelectedIndex,setSelec
       <div id="navigator" className="navbar">
         <nav style={navStyle}>
           <Link to="/" onClick={handleHome} className="navbar-home-link">
-          <img src="/logo.jpg" style={imgStyle} alt="logo"></img>
+          <img src="/src/assets/logo.jpg" style={imgStyle} alt="logo"></img>
           </Link>
           <div style={divStyle}>
             {

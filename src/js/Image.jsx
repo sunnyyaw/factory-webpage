@@ -90,7 +90,7 @@ export default function Image({navList,moreIndex,setSelectedIndex,images}) {
         {
           images.map((image, index) => {
             return (
-              <div key={index} id={'img' + index} style={{...imageStyle,backgroundImage: `url(/${image}.jpg)`}}>
+              <div key={index} id={'img' + index} style={{...imageStyle,backgroundImage: `url(/src/assets/${image}.jpg)`}}>
                 <h1 style={h1Style} className="img-text">专业、创新、开放</h1>
                 <h2 style={h2Style} className="img-text">xxx有限公司</h2>
                 <p style={pStyle} className="img-text">坚持以技术为底...</p>

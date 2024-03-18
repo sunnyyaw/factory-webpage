@@ -118,6 +118,9 @@ export default function App() {
         <Route path="/" element={<Home navList={navList} 
         setSelectedIndex={setSelectedIndex} setSelectedSubIndex={setSelectedSubIndex}
          images={images}/>}></Route>
+        <Route path="/index.html" element={<Home navList={navList} 
+        setSelectedIndex={setSelectedIndex} setSelectedSubIndex={setSelectedSubIndex}
+        images={images}/>}></Route>
         <Route path="/:navName/:subNavName/:productId" element={<ProductPage 
         products={navList[selectedIndex].products[selectedSubIndex]}
         setSelectedIndex={setSelectedIndex}
