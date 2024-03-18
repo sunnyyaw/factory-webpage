@@ -6,7 +6,7 @@ module.exports = {
   entry: path.resolve(__dirname,'src/js/index.jsx'),
   output: {
     filename: 'bundle.[fullhash].js',
-    path: path.resolve(__dirname,'dist'),
+    path: __dirname,
     publicPath: '/',
   },
   devServer: {
